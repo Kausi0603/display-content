@@ -6,12 +6,10 @@ document.addEventListener("DOMContentLoaded", function () {
   let data = JSON.parse(localStorage.getItem("apiData")) || [];
   let currentPage = 1;
   const recordsPerPage = 50;
-
   function displayResults() {
     const start = (currentPage - 1) * recordsPerPage;
     const end = start + recordsPerPage;
     const paginatedData = data.slice(start, end);
-
     let html = "<table><thead><tr>";
     if (paginatedData.length > 0) {
       Object.keys(paginatedData[0]).forEach((key) => {
@@ -26,7 +24,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
         html += "</tr>";
       });
-
       html += "</tbody></table>";
     } else {
       html = "<p>No data available.</p>";
@@ -44,7 +41,6 @@ document.addEventListener("DOMContentLoaded", function () {
       displayResults();
     }
   });
-
   nextPageBtn.addEventListener("click", function () {
     if (currentPage * recordsPerPage < data.length) {
       currentPage++;
