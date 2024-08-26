@@ -2,7 +2,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const resultsDiv = document.getElementById("results");
   const prevPageBtn = document.getElementById("prevPage");
   const nextPageBtn = document.getElementById("nextPage");
-
   let data = JSON.parse(localStorage.getItem("apiData")) || [];
   let currentPage = 1;
   const recordsPerPage = 50;
@@ -16,7 +15,6 @@ document.addEventListener("DOMContentLoaded", function () {
         html += `<th>${key}</th>`;
       });
       html += "</tr></thead><tbody>";
-
       paginatedData.forEach((item) => {
         html += "<tr>";
         Object.values(item).forEach((value) => {
